@@ -38,7 +38,7 @@ select * from spouse;
 create TABLE booking
 (		bookingnum		char(5)			NOT NULL,
 		clientid		char(2)			NOT NULL,
-		price			numeric(5,2)	NOT NULL,
+		price			numeric(6,2)	NOT NULL,
 		PRIMARY KEY (bookingnum),
 		FOREIGN KEY (clientid) REFERENCES client(clientid) );
 select * from booking;
@@ -53,10 +53,10 @@ select * from airlines;
 
 create TABLE flightstatus
 (		statusid		char(2)			NOT NULL,
-		arrivaltime		varchar(10)		NOT NULL,
+		departuretime		varchar(10)		NOT NULL,
+		departuredate		DATE			NOT NULL,
+ 		arrivaltime		varchar(10)		NOT NULL,
 		arrivaldate		DATE			NOT NULL,
-		departuretime	varchar(10)		NOT NULL,
-		departuredate	DATE			NOT NULL,
 		PRIMARY KEY (statusid)  );
 select * from flightstatus;
 
@@ -103,7 +103,7 @@ select * from manufracturer;
 
 create TABLE provides
 (		manuid			char(3)			NOT NULL,
-		componentsid	char(3)			NOT NULL,
+		componentsid		char(3)			NOT NULL,
 		aircraftid		char(2)			NOT NULL,
 		PRIMARY KEY (manuid, componentsid, aircraftid),
 		FOREIGN KEY (manuid) REFERENCES manufracturer(manuid),
@@ -115,7 +115,7 @@ select * from provides;
 
 create TABLE advertisements
 (		adid			char(4)			NOT NULL,
-		addescription	varchar(20)		NOT NULL,
+		addescription		varchar(20)		NOT NULL,
 		PRIMARY KEY (adid)   );
 
 select * from advertisements;
@@ -123,8 +123,8 @@ select * from advertisements;
 create TABLE travelclass
 (		classid				char(2)			NOT NULL,
 		classname			varchar(10)		NOT NULL,
-		classdescription	varchar(20)		NOT NULL,
-		refreshments		varchar(15),
+		classdescription		varchar(20)		NOT NULL,
+		refreshments			varchar(15),
 		PRIMARY KEY (classid)   );
 
 select * from travelclass;
